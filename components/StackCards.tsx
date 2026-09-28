@@ -77,53 +77,57 @@ function StackCard({
     [1, 1, 0.55],
   );
 
-  const topOffset = 96 + index * 28;
+  const mobileTop = 72 + index * 14;
+  const desktopTop = 96 + index * 28;
+  const css =
+    `.wema-stack-${index} { position: sticky; top: ${mobileTop}px; }` +
+    `@media (min-width: 768px) { .wema-stack-${index} { top: ${desktopTop}px; } }`;
 
   return (
-    <div
-      className="sticky mb-10 md:mb-14"
-      style={{ top: `${topOffset}px` }}
-    >
-      <motion.article
-        style={{ scale, opacity }}
-        className="relative overflow-hidden bg-[#0f2b4a] shadow-[0_30px_60px_-30px_rgba(0,0,0,0.6)]"
-      >
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_1.1fr]">
-          <div className="relative aspect-[4/3] w-full overflow-hidden md:aspect-auto md:min-h-[440px]">
-            <Image
-              src={item.bild}
-              alt={item.bildAlt}
-              fill
-              sizes="(min-width: 768px) 50vw, 100vw"
-              className="object-cover"
-            />
-            <div
-              className="absolute inset-0"
-              style={{
-                background:
-                  "linear-gradient(180deg, rgba(10,21,34,0.1) 0%, rgba(10,21,34,0.35) 100%)",
-              }}
-            />
-          </div>
-          <div className="flex flex-col justify-between gap-10 p-10 md:p-14">
-            <div className="flex items-baseline justify-between text-white/70">
-              <span className="eyebrow">{item.eyebrow}</span>
-              <span className="mono text-xs uppercase tracking-[0.24em]">
-                {String(index + 1).padStart(2, "0")} /{" "}
-                {String(total).padStart(2, "0")}
-              </span>
+    <>
+      <style dangerouslySetInnerHTML={{ __html: css }} />
+      <div className={`wema-stack-${index} mb-6 md:mb-14`}>
+        <motion.article
+          style={{ scale, opacity }}
+          className="relative overflow-hidden bg-[#0f2b4a] shadow-[0_20px_45px_-20px_rgba(0,0,0,0.7)]"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_1.1fr]">
+            <div className="relative aspect-[3/2] w-full overflow-hidden md:aspect-auto md:min-h-[440px]">
+              <Image
+                src={item.bild}
+                alt={item.bildAlt}
+                fill
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="object-cover"
+              />
+              <div
+                className="absolute inset-0"
+                style={{
+                  background:
+                    "linear-gradient(180deg, rgba(10,21,34,0.1) 0%, rgba(10,21,34,0.35) 100%)",
+                }}
+              />
             </div>
-            <div>
-              <h3 className="font-display text-4xl leading-[0.98] tracking-tight md:text-5xl">
-                {item.titel}
-              </h3>
-              <p className="mt-6 max-w-md text-white/80 md:text-lg">
-                {item.text}
-              </p>
+            <div className="flex flex-col justify-between gap-6 p-6 md:gap-10 md:p-14">
+              <div className="flex items-baseline justify-between text-white/70">
+                <span className="eyebrow">{item.eyebrow}</span>
+                <span className="mono text-[10px] uppercase tracking-[0.24em] md:text-xs">
+                  {String(index + 1).padStart(2, "0")} /{" "}
+                  {String(total).padStart(2, "0")}
+                </span>
+              </div>
+              <div>
+                <h3 className="font-display text-[28px] leading-[1.0] tracking-tight md:text-5xl">
+                  {item.titel}
+                </h3>
+                <p className="mt-4 max-w-md text-sm leading-relaxed text-white/80 md:mt-6 md:text-lg">
+                  {item.text}
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      </motion.article>
-    </div>
+        </motion.article>
+      </div>
+    </>
   );
 }

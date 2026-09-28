@@ -75,7 +75,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.1, delay: 0.2, ease: [0.22, 0.61, 0.36, 1] }}
-              className="font-display mt-8 text-[54px] leading-[0.95] tracking-tight md:text-[92px] lg:text-[112px]"
+              className="font-display mt-8 text-[38px] leading-[0.98] tracking-tight sm:text-[54px] md:text-[80px] lg:text-[104px]"
             >
               Beton verlangt Präzision.
               <br />

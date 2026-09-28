@@ -62,7 +62,7 @@ export default async function ProduktSeite({
               </div>
             </Reveal>
             <Reveal delay={0.05}>
-              <h1 className="font-display mt-6 text-[54px] leading-[0.95] tracking-tight md:text-[104px]">
+              <h1 className="font-display mt-6 text-[38px] leading-[1.0] tracking-tight sm:text-[54px] md:text-[80px] lg:text-[104px]">
                 {p.titel}.
               </h1>
             </Reveal>
@@ -129,7 +129,7 @@ export default async function ProduktSeite({
             <Reveal>
               <div className="max-w-2xl text-white">
                 <div className="eyebrow text-white/60">Gefertigt in St. Wendel</div>
-                <div className="font-display mt-6 text-[40px] leading-[0.98] tracking-tight md:text-[68px]">
+                <div className="font-display mt-6 text-[30px] leading-[1.0] tracking-tight sm:text-[40px] md:text-[56px] lg:text-[68px]">
                   Aus einer Hand.
                   <br />
                   <span className="italic text-white/80">Wie seit 1953.</span>

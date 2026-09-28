@@ -31,7 +31,7 @@ export default function Unternehmen() {
             <div className="eyebrow text-white/70">Das Unternehmen</div>
           </Reveal>
           <Reveal delay={0.05}>
-            <h1 className="font-display mt-6 max-w-4xl text-[52px] leading-[0.95] tracking-tight md:text-[104px]">
+            <h1 className="font-display mt-6 max-w-4xl text-[36px] leading-[1.0] tracking-tight sm:text-[52px] md:text-[80px] lg:text-[104px]">
               Kompetenz
               <br />
               <span className="italic text-white/85">seit {SITE.gruendung}.</span>
@@ -87,7 +87,7 @@ export default function Unternehmen() {
       >
         <div className="max-w-3xl text-white">
           <div className="eyebrow text-white/60">Programm</div>
-          <h2 className="font-display mt-6 text-[44px] leading-[0.98] tracking-tight md:text-[80px]">
+          <h2 className="font-display mt-6 text-[32px] leading-[1.0] tracking-tight sm:text-[44px] md:text-[64px] lg:text-[80px]">
             Was wir bauen.
             <br />
             <span className="italic text-white/80">Ohne Umweg.</span>
@@ -165,7 +165,7 @@ export default function Unternehmen() {
           <div className="eyebrow text-white/60">Referenzen</div>
           <ScrollWord
             as="h2"
-            className="font-display mt-6 text-[46px] leading-[0.98] tracking-tight md:text-[88px]"
+            className="font-display mt-6 text-[34px] leading-[1.0] tracking-tight sm:text-[46px] md:text-[70px] lg:text-[88px]"
             text="Vertrauen aus der Branche."
             intensity={0.7}
           />

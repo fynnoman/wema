@@ -29,7 +29,7 @@ export default function Leistungen() {
             <div className="eyebrow text-white/70">Was wir bieten</div>
           </Reveal>
           <Reveal delay={0.05}>
-            <h1 className="font-display mt-6 max-w-4xl text-[52px] leading-[0.95] tracking-tight md:text-[104px]">
+            <h1 className="font-display mt-6 max-w-4xl text-[36px] leading-[1.0] tracking-tight sm:text-[52px] md:text-[80px] lg:text-[104px]">
               Unsere Lösungen,
               <br />
               <span className="italic text-white/85">wenn es um Beton geht.</span>
@@ -88,15 +88,15 @@ export default function Leistungen() {
                       }}
                     />
                   </div>
-                  <div className="flex flex-col justify-between gap-8 p-10 text-white md:p-14">
-                    <div className="flex items-baseline gap-6">
-                      <span className="mono text-xs uppercase tracking-[0.28em] text-white/60">
+                  <div className="flex flex-col justify-between gap-6 p-6 text-white md:gap-8 md:p-14">
+                    <div className="flex items-baseline gap-4 md:gap-6">
+                      <span className="mono text-[10px] uppercase tracking-[0.28em] text-white/60 md:text-xs">
                         {String(i + 1).padStart(2, "0")} / 05
                       </span>
                       <span className="eyebrow text-white/60">Programm</span>
                     </div>
                     <div>
-                      <h2 className="font-display text-4xl leading-[0.98] tracking-tight md:text-5xl">
+                      <h2 className="font-display text-[28px] leading-[1.0] tracking-tight sm:text-4xl md:text-5xl">
                         {p.titel}
                       </h2>
                       <p className="mt-4 max-w-md text-white/80 md:text-lg">

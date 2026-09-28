@@ -159,7 +159,7 @@ export default function Home() {
           <div className="eyebrow text-white/60">Referenzen</div>
           <ScrollWord
             as="h2"
-            className="font-display mt-6 text-[46px] leading-[0.98] tracking-tight md:text-[92px]"
+            className="font-display mt-6 text-[34px] leading-[1.0] tracking-tight sm:text-[46px] md:text-[72px] lg:text-[92px]"
             text="Über 1.000 Recyclinganlagen im Einsatz."
             intensity={0.7}
           />
@@ -223,7 +223,7 @@ export default function Home() {
           <div className="eyebrow text-white/60">Vertrieb</div>
           <ScrollWord
             as="h2"
-            className="font-display mt-6 text-[44px] leading-[0.98] tracking-tight md:text-[88px]"
+            className="font-display mt-6 text-[32px] leading-[1.0] tracking-tight sm:text-[44px] md:text-[68px] lg:text-[88px]"
             text="Zuhause im Saarland. Zuhause in Europa."
             intensity={0.7}
           />

@@ -31,8 +31,7 @@ export default function ZoomShowcase({
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden bg-[#0a1522]"
-      style={{ height: "120vh" }}
+      className="relative h-[110vh] overflow-hidden bg-[#0a1522] md:h-[120vh]"
     >
       <motion.div style={{ scale, y }} className="absolute inset-0 will-change-transform">
         <Image

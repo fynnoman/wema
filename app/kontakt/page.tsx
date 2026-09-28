@@ -29,7 +29,7 @@ export default function Kontakt() {
             <div className="eyebrow text-white/70">Kontakt</div>
           </Reveal>
           <Reveal delay={0.05}>
-            <h1 className="font-display mt-6 max-w-4xl text-[52px] leading-[0.95] tracking-tight md:text-[100px]">
+            <h1 className="font-display mt-6 max-w-4xl text-[36px] leading-[1.0] tracking-tight sm:text-[52px] md:text-[76px] lg:text-[100px]">
               Sprechen wir
               <br />
               <span className="italic text-white/85">über Ihr Werk.</span>
