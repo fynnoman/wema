@@ -218,7 +218,7 @@ export default function Unternehmen() {
   );
 }
 
-function Kenn({ label, value }: { label: string; value: string }) {
+function Kenn({ label, value }: { label: string; value: React.ReactNode }) {
   return (
     <div>
       <div className="font-display text-2xl leading-none text-[color:var(--color-ink)]">
