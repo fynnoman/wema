@@ -2,9 +2,11 @@
 
 import { motion, useScroll, useTransform, useReducedMotion, type MotionValue } from "framer-motion";
 import { useRef } from "react";
+import { useLang } from "./LanguageProvider";
 
 type Props = {
   text: string;
+  textEn?: string;
   className?: string;
   as?: "h1" | "h2" | "h3" | "p" | "div";
   intensity?: number;
@@ -13,6 +15,7 @@ type Props = {
 
 export default function ScrollWord({
   text,
+  textEn,
   className = "",
   as = "h2",
   intensity = 1,
@@ -20,12 +23,14 @@ export default function ScrollWord({
 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const prefers = useReducedMotion();
+  const { lang } = useLang();
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start 0.95", "start 0.35"],
   });
   const Tag = motion[as] as typeof motion.div;
-  const words = text.split(" ");
+  const active = lang === "en" && textEn ? textEn : text;
+  const words = active.split(" ");
 
   return (
     <div

@@ -4,9 +4,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { NAV, SITE } from "@/lib/site";
+import { useLang } from "./LanguageProvider";
+import LangToggle from "./LangToggle";
 
 export default function Header() {
   const pathname = usePathname();
+  const { lang } = useLang();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const overHero = pathname === "/" && !scrolled;
@@ -40,7 +43,7 @@ export default function Header() {
             WEMA
           </span>
           <span className={`hidden text-[10px] uppercase tracking-[0.28em] md:inline ${subtle}`}>
-            seit {SITE.gruendung}
+            {lang === "en" ? "since" : "seit"} {SITE.gruendung}
           </span>
         </Link>
 
@@ -57,7 +60,7 @@ export default function Header() {
                 className="group relative py-2 text-[12px] uppercase tracking-[0.2em]"
                 style={{ opacity: active ? 1 : 0.75 }}
               >
-                {item.label}
+                {lang === "en" ? item.labelEn : item.labelDe}
                 <span
                   className="absolute -bottom-0.5 left-0 h-px w-full origin-left transition-transform duration-500"
                   style={{
@@ -77,10 +80,11 @@ export default function Header() {
           >
             {SITE.telefon[0]}
           </a>
+          <LangToggle tone={overHero ? "light" : "dark"} />
         </div>
 
         <button
-          aria-label="Menü"
+          aria-label={lang === "en" ? "Menu" : "Menü"}
           onClick={() => setOpen((v) => !v)}
           className="grid h-10 w-10 place-items-center md:hidden"
         >
@@ -114,15 +118,18 @@ export default function Header() {
                 onClick={() => setOpen(false)}
                 className="border-b border-[color:var(--color-line-soft)] py-4 text-[13px] uppercase tracking-[0.2em]"
               >
-                {item.label}
+                {lang === "en" ? item.labelEn : item.labelDe}
               </Link>
             ))}
-            <a
-              href={`tel:${SITE.telefon[0].replace(/\s/g, "")}`}
-              className="mt-3 text-sm text-[color:var(--color-nav-2)]"
-            >
-              {SITE.telefon[0]}
-            </a>
+            <div className="mt-4 flex items-center justify-between">
+              <a
+                href={`tel:${SITE.telefon[0].replace(/\s/g, "")}`}
+                className="text-sm text-[color:var(--color-nav-2)]"
+              >
+                {SITE.telefon[0]}
+              </a>
+              <LangToggle tone="dark" />
+            </div>
           </div>
         </div>
       </div>

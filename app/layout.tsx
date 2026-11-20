@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import { cookies } from "next/headers";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
+import { LanguageProvider, type Lang } from "@/components/LanguageProvider";
 
 export const metadata: Metadata = {
   title: "WEMA Stahl- und Maschinenbau · Beton-Recyclinganlagen · Saarland",
@@ -18,11 +20,15 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const cookieStore = await cookies();
+  const cookieLang = cookieStore.get("wema-lang")?.value;
+  const initialLang: Lang = cookieLang === "en" ? "en" : "de";
+
   return (
-    <html lang="de">
+    <html lang={initialLang}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
@@ -32,10 +38,12 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <ScrollProgress />
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <LanguageProvider initialLang={initialLang}>
+          <ScrollProgress />
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );

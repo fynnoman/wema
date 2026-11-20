@@ -1,5 +1,7 @@
 import Reveal from "@/components/Reveal";
 import Parallax from "@/components/Parallax";
+import T from "@/components/T";
+import KontaktFormular from "@/components/KontaktFormular";
 import { SITE } from "@/lib/site";
 
 export const metadata = {
@@ -17,8 +19,8 @@ export default function Kontakt() {
     <>
       <section className="relative h-[75svh] min-h-[500px] w-full overflow-hidden bg-[#0a1522]">
         <Parallax
-          src="/images/beton-recycling-2.jpg"
-          alt="Beton läuft aus der Anlage"
+          src="/images/photos/rc-ueber-flur-03.jpg"
+          alt="Beton-Recyclinganlage im Betrieb"
           className="absolute inset-0 h-full w-full"
           strength={80}
           priority
@@ -26,19 +28,25 @@ export default function Kontakt() {
         />
         <div className="relative z-10 mx-auto flex h-full max-w-[1400px] flex-col justify-end px-6 pb-16 text-white md:px-10 md:pb-24">
           <Reveal>
-            <div className="eyebrow text-white/70">Kontakt</div>
+            <div className="eyebrow text-white/70">
+              <T de="Kontakt" en="Contact" />
+            </div>
           </Reveal>
           <Reveal delay={0.05}>
             <h1 className="font-display mt-6 max-w-4xl text-[36px] leading-[1.0] tracking-tight sm:text-[52px] md:text-[76px] lg:text-[100px]">
-              Sprechen wir
+              <T de="Sprechen wir" en="Let's talk" />
               <br />
-              <span className="italic text-white/85">über Ihr Werk.</span>
+              <span className="italic text-white/85">
+                <T de="über Ihr Werk." en="about your plant." />
+              </span>
             </h1>
           </Reveal>
           <Reveal delay={0.15}>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-white/80 md:text-lg">
-              Ob Anfrage, Ersatzteil oder komplette Neuplanung. Ein Anruf
-              genügt. Wir hören zu und melden uns zurück.
+              <T
+                de="Ob Anfrage, Ersatzteil oder komplette Neuplanung. Ein Anruf genügt. Wir hören zu und melden uns zurück."
+                en="Whether an enquiry, a spare part or a complete new plant: one call is enough. We listen and get back to you."
+              />
             </p>
           </Reveal>
         </div>
@@ -48,27 +56,35 @@ export default function Kontakt() {
         <div className="mx-auto grid max-w-[1400px] gap-10 px-6 py-20 md:grid-cols-[1fr_1fr] md:px-10 md:py-28">
           <Reveal>
             <div className="border border-[color:var(--color-line)] bg-white p-10 md:p-12">
-              <div className="eyebrow text-[color:var(--color-nav-2)]">Werk St. Wendel</div>
+              <div className="eyebrow text-[color:var(--color-nav-2)]">
+                <T de="Werk St. Wendel" en="Plant St. Wendel" />
+              </div>
               <h2 className="font-display mt-6 text-3xl leading-tight text-[color:var(--color-ink)] md:text-4xl">
                 {SITE.legal}
               </h2>
               <div className="mt-8 space-y-6 text-[color:var(--color-ink-soft)]">
                 <div>
-                  <div className="eyebrow mb-2 text-[color:var(--color-nav-2)]">Geschäftsführer</div>
+                  <div className="eyebrow mb-2 text-[color:var(--color-nav-2)]">
+                    <T de="Geschäftsführer" en="Managing Director" />
+                  </div>
                   <div>{SITE.geschaeftsfuehrer}</div>
                 </div>
                 <div>
-                  <div className="eyebrow mb-2 text-[color:var(--color-nav-2)]">Anschrift</div>
+                  <div className="eyebrow mb-2 text-[color:var(--color-nav-2)]">
+                    <T de="Anschrift" en="Address" />
+                  </div>
                   <div>
                     {SITE.strasse}
                     <br />
                     {SITE.plz} {SITE.ort}
                     <br />
-                    {SITE.land}
+                    <T de={SITE.land} en={SITE.landEn} />
                   </div>
                 </div>
                 <div>
-                  <div className="eyebrow mb-2 text-[color:var(--color-nav-2)]">Telefon</div>
+                  <div className="eyebrow mb-2 text-[color:var(--color-nav-2)]">
+                    <T de="Telefon" en="Phone" />
+                  </div>
                   {SITE.telefon.map((t) => (
                     <div key={t}>
                       <a
@@ -81,11 +97,15 @@ export default function Kontakt() {
                   ))}
                 </div>
                 <div>
-                  <div className="eyebrow mb-2 text-[color:var(--color-nav-2)]">Telefax</div>
+                  <div className="eyebrow mb-2 text-[color:var(--color-nav-2)]">
+                    <T de="Telefax" en="Fax" />
+                  </div>
                   <div>{SITE.telefax}</div>
                 </div>
                 <div>
-                  <div className="eyebrow mb-2 text-[color:var(--color-nav-2)]">E-Mail</div>
+                  <div className="eyebrow mb-2 text-[color:var(--color-nav-2)]">
+                    <T de="E-Mail" en="Email" />
+                  </div>
                   <a
                     href={`mailto:${SITE.email}`}
                     className="text-[color:var(--color-nav-2)] hover:underline"
@@ -108,14 +128,16 @@ export default function Kontakt() {
                 />
               </div>
               <div className="flex items-center justify-between p-6 text-xs uppercase tracking-[0.24em] text-[color:var(--color-muted)]">
-                <span>Standort · St. Wendel</span>
+                <span>
+                  <T de="Standort · St. Wendel" en="Location · St. Wendel" />
+                </span>
                 <a
                   href={`https://www.google.com/maps/search/?api=1&query=${query}`}
                   target="_blank"
                   rel="noreferrer"
                   className="text-[color:var(--color-nav-2)]"
                 >
-                  Route planen →
+                  <T de="Route planen →" en="Plan route →" />
                 </a>
               </div>
             </div>
@@ -126,73 +148,21 @@ export default function Kontakt() {
       <section className="bg-[#0a1522] text-white">
         <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-10 md:py-28">
           <Reveal>
-            <div className="eyebrow text-white/60">Anfrage</div>
+            <div className="eyebrow text-white/60">
+              <T de="Anfrage" en="Enquiry" />
+            </div>
             <h2 className="font-display mt-6 max-w-3xl text-4xl leading-[1.05] tracking-tight md:text-6xl">
-              Schreiben Sie uns
-              <span className="italic text-white/80"> kurz, worum es geht.</span>
+              <T de="Schreiben Sie uns" en="Write to us" />
+              <span className="italic text-white/80">
+                <T de=" kurz, worum es geht." en=" and tell us what it's about." />
+              </span>
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
-            <form
-              action={`mailto:${SITE.email}`}
-              method="post"
-              encType="text/plain"
-              className="mt-14 grid gap-8 md:grid-cols-2"
-            >
-              <Field label="Name" name="name" required />
-              <Field label="Unternehmen" name="unternehmen" />
-              <Field label="E-Mail" name="email" type="email" required />
-              <Field label="Telefon" name="telefon" type="tel" />
-              <label className="flex flex-col gap-3 text-sm md:col-span-2">
-                <span className="eyebrow text-white/60">Nachricht</span>
-                <textarea
-                  name="nachricht"
-                  rows={6}
-                  required
-                  className="border-b border-white/30 bg-transparent py-3 text-lg text-white placeholder:text-white/40 outline-none focus:border-white"
-                />
-              </label>
-              <div className="md:col-span-2">
-                <button type="submit" className="btn-primary">
-                  Anfrage senden <span aria-hidden>→</span>
-                </button>
-                <p className="mt-6 text-xs text-white/50">
-                  Ihre Angaben werden ausschließlich zur Bearbeitung Ihrer
-                  Anfrage verwendet. Weitere Hinweise in unserer{" "}
-                  <a href="/datenschutz" className="underline hover:text-white">
-                    Datenschutzerklärung
-                  </a>
-                  .
-                </p>
-              </div>
-            </form>
+            <KontaktFormular />
           </Reveal>
         </div>
       </section>
     </>
-  );
-}
-
-function Field({
-  label,
-  name,
-  type = "text",
-  required = false,
-}: {
-  label: string;
-  name: string;
-  type?: string;
-  required?: boolean;
-}) {
-  return (
-    <label className="flex flex-col gap-3 text-sm">
-      <span className="eyebrow text-white/60">{label}</span>
-      <input
-        type={type}
-        name={name}
-        required={required}
-        className="border-b border-white/30 bg-transparent py-3 text-lg text-white placeholder:text-white/40 outline-none focus:border-white"
-      />
-    </label>
   );
 }

@@ -5,9 +5,12 @@ import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { SITE } from "@/lib/site";
+import { useLang } from "./LanguageProvider";
 
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null);
+  const { lang } = useLang();
+  const en = lang === "en";
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
@@ -28,7 +31,7 @@ export default function Hero() {
       >
         <Image
           src="/images/hero-halle.jpg"
-          alt="Fertigung in der Halle bei WEMA in St. Wendel"
+          alt={en ? "Production hall at WEMA in St. Wendel" : "Fertigung in der Halle bei WEMA in St. Wendel"}
           fill
           priority
           sizes="100vw"
@@ -68,7 +71,7 @@ export default function Hero() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[color:var(--color-nav-4)] opacity-70" />
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[color:var(--color-nav-4)]" />
               </span>
-              Weiskircher · Kompetenz seit {SITE.gruendung}
+              Weiskircher · {en ? "expertise since" : "Kompetenz seit"} {SITE.gruendung}
             </motion.div>
 
             <motion.h1
@@ -77,10 +80,12 @@ export default function Hero() {
               transition={{ duration: 1.1, delay: 0.2, ease: [0.22, 0.61, 0.36, 1] }}
               className="font-display mt-8 text-[38px] leading-[0.98] tracking-tight sm:text-[54px] md:text-[80px] lg:text-[104px]"
             >
-              Beton verlangt Präzision.
+              {en ? "Concrete demands precision." : "Beton verlangt Präzision."}
               <br />
               <span className="relative inline-block italic text-white">
-                <span className="relative z-10">Und Charakter.</span>
+                <span className="relative z-10">
+                  {en ? "And character." : "Und Charakter."}
+                </span>
                 <motion.span
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
@@ -97,9 +102,9 @@ export default function Hero() {
               transition={{ duration: 0.9, delay: 0.55, ease: [0.22, 0.61, 0.36, 1] }}
               className="mt-8 max-w-xl text-base leading-relaxed text-white/85 md:text-lg"
             >
-              Seit über sieben Jahrzehnten bauen wir aus St. Wendel Anlagen
-              für die Beton produzierende Industrie. Ruhig, gründlich, gemacht
-              für den Dauerbetrieb im Werk.
+              {en
+                ? "For over seven decades we have been building plants for the concrete producing industry from St. Wendel. Calm, thorough, made for continuous operation."
+                : "Seit über sieben Jahrzehnten bauen wir aus St. Wendel Anlagen für die Beton produzierende Industrie. Ruhig, gründlich, gemacht für den Dauerbetrieb im Werk."}
             </motion.p>
 
             <motion.div
@@ -109,11 +114,11 @@ export default function Hero() {
               className="mt-10 flex flex-wrap items-center gap-4"
             >
               <Link href="/leistungen" className="btn-primary">
-                Was wir bauen
+                {en ? "What we build" : "Was wir bauen"}
                 <span aria-hidden>→</span>
               </Link>
               <Link href="/unternehmen" className="btn-ghost">
-                Über WEMA
+                {en ? "About WEMA" : "Über WEMA"}
               </Link>
             </motion.div>
           </div>
@@ -125,16 +130,28 @@ export default function Hero() {
             className="relative hidden self-end border-l-2 border-[color:var(--color-nav-4)] bg-[color:var(--color-nav-1)]/45 p-8 backdrop-blur-md md:block"
           >
             <div className="mono absolute -top-3 left-6 bg-[#0a1522] px-3 text-[10px] uppercase tracking-[0.32em] text-[color:var(--color-nav-4)]">
-              Werksdaten
+              {en ? "Plant facts" : "Werksdaten"}
             </div>
             <div className="grid gap-6">
-              <MetricRow label="Gegründet" value={String(SITE.gruendung)} />
+              <MetricRow
+                label={en ? "Founded" : "Gegründet"}
+                value={String(SITE.gruendung)}
+              />
               <div className="h-px bg-white/10" />
-              <MetricRow label="Mitarbeiter" value={`ca. ${SITE.mitarbeiter}`} />
+              <MetricRow
+                label={en ? "Employees" : "Mitarbeiter"}
+                value={`${en ? "approx." : "ca."} ${SITE.mitarbeiter}`}
+              />
               <div className="h-px bg-white/10" />
-              <MetricRow label="Recyclinganlagen" value="1.000+" />
+              <MetricRow
+                label={en ? "Recycling plants" : "Recyclinganlagen"}
+                value="1.000+"
+              />
               <div className="h-px bg-white/10" />
-              <MetricRow label="Halle" value="1.000 m²" />
+              <MetricRow
+                label={en ? "Shop floor" : "Halle"}
+                value="1.000 m²"
+              />
             </div>
           </motion.aside>
         </div>
@@ -146,16 +163,25 @@ export default function Hero() {
           className="flex items-end justify-between gap-8 text-white/70"
         >
           <div className="flex items-center gap-4 md:hidden">
-            <MobileMetric value={String(SITE.gruendung)} label="Gegründet" />
+            <MobileMetric
+              value={String(SITE.gruendung)}
+              label={en ? "Founded" : "Gegründet"}
+            />
             <span className="h-6 w-px bg-white/20" />
-            <MobileMetric value={`ca. ${SITE.mitarbeiter}`} label="Team" />
+            <MobileMetric
+              value={`${en ? "approx." : "ca."} ${SITE.mitarbeiter}`}
+              label={en ? "Team" : "Team"}
+            />
             <span className="h-6 w-px bg-white/20" />
-            <MobileMetric value="1.000+" label="Anlagen" />
+            <MobileMetric
+              value="1.000+"
+              label={en ? "Plants" : "Anlagen"}
+            />
           </div>
 
           <div className="hidden items-center gap-4 md:flex">
             <span className="text-xs uppercase tracking-[0.28em]">
-              Werk · St. Wendel · Saarland
+              {en ? "Plant · St. Wendel · Saarland" : "Werk · St. Wendel · Saarland"}
             </span>
             <span className="block h-px w-16 bg-[color:var(--color-nav-4)]" />
           </div>

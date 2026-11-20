@@ -3,11 +3,15 @@
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { useLang } from "./LanguageProvider";
 
 export type StackItem = {
   eyebrow: string;
+  eyebrowEn?: string;
   titel: string;
+  titelEn?: string;
   text: string;
+  textEn?: string;
   bild: string;
   bildAlt: string;
 };
@@ -15,13 +19,19 @@ export type StackItem = {
 export default function StackCards({
   items,
   title,
+  titleEn,
   subtitle,
+  subtitleEn,
 }: {
   items: StackItem[];
   title: string;
+  titleEn?: string;
   subtitle?: string;
+  subtitleEn?: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
+  const { lang } = useLang();
+  const en = lang === "en";
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end end"],
@@ -31,9 +41,13 @@ export default function StackCards({
     <section className="relative bg-[#0a1522] text-white">
       <div className="grain absolute inset-0 pointer-events-none" />
       <div className="relative mx-auto max-w-[1400px] px-6 pt-24 pb-8 md:px-10 md:pt-32">
-        {subtitle && <div className="eyebrow text-white/60">{subtitle}</div>}
+        {subtitle && (
+          <div className="eyebrow text-white/60">
+            {en && subtitleEn ? subtitleEn : subtitle}
+          </div>
+        )}
         <h2 className="font-display mt-4 max-w-3xl text-4xl leading-[1.05] tracking-tight md:text-6xl">
-          {title}
+          {en && titleEn ? titleEn : title}
         </h2>
       </div>
 
@@ -45,6 +59,7 @@ export default function StackCards({
             index={i}
             total={items.length}
             progress={scrollYProgress}
+            en={en}
           />
         ))}
       </div>
@@ -57,11 +72,13 @@ function StackCard({
   index,
   total,
   progress,
+  en,
 }: {
   item: StackItem;
   index: number;
   total: number;
   progress: any;
+  en: boolean;
 }) {
   const step = 1 / total;
   const start = index * step;
@@ -110,7 +127,9 @@ function StackCard({
             </div>
             <div className="flex flex-col justify-between gap-6 p-6 md:gap-10 md:p-14">
               <div className="flex items-baseline justify-between text-white/70">
-                <span className="eyebrow">{item.eyebrow}</span>
+                <span className="eyebrow">
+                  {en && item.eyebrowEn ? item.eyebrowEn : item.eyebrow}
+                </span>
                 <span className="mono text-[10px] uppercase tracking-[0.24em] md:text-xs">
                   {String(index + 1).padStart(2, "0")} /{" "}
                   {String(total).padStart(2, "0")}
@@ -118,10 +137,10 @@ function StackCard({
               </div>
               <div>
                 <h3 className="font-display text-[28px] leading-[1.0] tracking-tight md:text-5xl">
-                  {item.titel}
+                  {en && item.titelEn ? item.titelEn : item.titel}
                 </h3>
                 <p className="mt-4 max-w-md text-sm leading-relaxed text-white/80 md:mt-6 md:text-lg">
-                  {item.text}
+                  {en && item.textEn ? item.textEn : item.text}
                 </p>
               </div>
             </div>

@@ -3,13 +3,17 @@
 import Image from "next/image";
 import { motion, useScroll, useTransform, type MotionValue } from "framer-motion";
 import { useRef } from "react";
+import { useLang } from "./LanguageProvider";
 
 export type TimelineItem = {
   jahr: string;
   titel: string;
+  titelEn?: string;
   text: string;
+  textEn?: string;
   bild: string;
   bildAlt: string;
+  bildAltEn?: string;
 };
 
 export default function PinnedTimeline({ items }: { items: TimelineItem[] }) {
@@ -22,14 +26,20 @@ export default function PinnedTimeline({ items }: { items: TimelineItem[] }) {
 }
 
 function MobileTimeline({ items }: { items: TimelineItem[] }) {
+  const { lang } = useLang();
+  const en = lang === "en";
   return (
     <section className="relative bg-white md:hidden">
       <div className="mx-auto max-w-[1400px] px-6 pt-20 pb-16">
-        <div className="eyebrow text-[color:var(--color-nav-2)]">Historie</div>
+        <div className="eyebrow text-[color:var(--color-nav-2)]">
+          {en ? "History" : "Historie"}
+        </div>
         <h2 className="font-display mt-4 text-[32px] leading-[1.0] tracking-tight text-[color:var(--color-ink)]">
-          Sieben Jahrzehnte
+          {en ? "Seven decades of" : "Sieben Jahrzehnte"}
           <br />
-          <span className="italic text-[color:var(--color-nav-2)]">Maschinenbau.</span>
+          <span className="italic text-[color:var(--color-nav-2)]">
+            {en ? "mechanical engineering." : "Maschinenbau."}
+          </span>
         </h2>
 
         <ol className="mt-10 grid gap-10">
@@ -45,7 +55,7 @@ function MobileTimeline({ items }: { items: TimelineItem[] }) {
               <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#0a1522]">
                 <Image
                   src={item.bild}
-                  alt={item.bildAlt}
+                  alt={en && item.bildAltEn ? item.bildAltEn : item.bildAlt}
                   fill
                   sizes="100vw"
                   className="object-cover"
@@ -69,10 +79,10 @@ function MobileTimeline({ items }: { items: TimelineItem[] }) {
               </div>
               <div className="mt-5">
                 <div className="font-display text-2xl leading-tight text-[color:var(--color-ink)]">
-                  {item.titel}
+                  {en && item.titelEn ? item.titelEn : item.titel}
                 </div>
                 <p className="mt-3 text-base leading-relaxed text-[color:var(--color-ink-soft)]">
-                  {item.text}
+                  {en && item.textEn ? item.textEn : item.text}
                 </p>
               </div>
             </motion.li>
@@ -85,6 +95,8 @@ function MobileTimeline({ items }: { items: TimelineItem[] }) {
 
 function DesktopPinnedTimeline({ items }: { items: TimelineItem[] }) {
   const ref = useRef<HTMLDivElement>(null);
+  const { lang } = useLang();
+  const en = lang === "en";
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end end"],
@@ -111,11 +123,15 @@ function DesktopPinnedTimeline({ items }: { items: TimelineItem[] }) {
           </div>
 
           <div className="relative flex flex-col justify-center px-6 py-16 md:px-14">
-            <div className="eyebrow mb-6 text-[color:var(--color-nav-2)]">Historie</div>
+            <div className="eyebrow mb-6 text-[color:var(--color-nav-2)]">
+              {en ? "History" : "Historie"}
+            </div>
             <div className="font-display mb-12 text-3xl leading-[1.05] tracking-tight text-[color:var(--color-ink)] md:text-5xl">
-              Sieben Jahrzehnte
+              {en ? "Seven decades of" : "Sieben Jahrzehnte"}
               <br />
-              <span className="italic text-[color:var(--color-nav-2)]">Maschinenbau.</span>
+              <span className="italic text-[color:var(--color-nav-2)]">
+                {en ? "mechanical engineering." : "Maschinenbau."}
+              </span>
             </div>
 
             <div className="relative min-h-[280px] md:min-h-[320px]">
@@ -126,6 +142,7 @@ function DesktopPinnedTimeline({ items }: { items: TimelineItem[] }) {
                   index={i}
                   total={items.length}
                   progress={scrollYProgress}
+                  en={en}
                 />
               ))}
             </div>
@@ -205,11 +222,13 @@ function TimelineText({
   index,
   total,
   progress,
+  en,
 }: {
   item: TimelineItem;
   index: number;
   total: number;
   progress: MotionValue<number>;
+  en: boolean;
 }) {
   const step = 1 / total;
   const start = index * step;
@@ -245,10 +264,10 @@ function TimelineText({
         {item.jahr}
       </div>
       <div className="font-display mt-4 text-3xl leading-tight text-[color:var(--color-ink)] md:text-4xl">
-        {item.titel}
+        {en && item.titelEn ? item.titelEn : item.titel}
       </div>
       <p className="mt-4 max-w-lg text-base leading-relaxed text-[color:var(--color-ink-soft)] md:text-lg">
-        {item.text}
+        {en && item.textEn ? item.textEn : item.text}
       </p>
     </motion.div>
   );
