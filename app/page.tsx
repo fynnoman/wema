@@ -34,7 +34,7 @@ export default function Home() {
               <ScrollWord
                 as="p"
                 className="text-lg leading-relaxed text-[color:var(--color-ink-soft)] md:text-2xl"
-                text="Wir bauen keine Prospekt-Maschinen. Wir bauen Anlagen, die jeden Tag im Werk laufen. Konstruiert, gefertigt, lackiert und montiert von rund zwanzig Menschen in St. Wendel. Aus einer Halle mit zwei Krananlagen zu je zehn Tonnen. Seit neunzehnhundertdreiundfünfzig."
+                text="Wir bauen Anlagen, die jeden Tag im Werk laufen. Konstruiert, gefertigt, lackiert und montiert in St. Wendel. Seit neunzehnhundertdreiundfünfzig."
                 intensity={0.85}
               />
 
@@ -73,14 +73,6 @@ export default function Home() {
                     label="Länder Vertrieb"
                     value={<CountUp to={7} />}
                   />
-                  <Metric
-                    label="Halle"
-                    value={<>{SITE.produktionshalle}</>}
-                  />
-                  <Metric
-                    label="Krananlagen"
-                    value={<>2 × <CountUp to={10} /> t</>}
-                  />
                 </div>
               </Reveal>
               <Reveal delay={0.1}>
@@ -98,35 +90,35 @@ export default function Home() {
           {
             jahr: "1953",
             titel: "Der Anfang in St. Wendel.",
-            text: "Gründung der WEMA. Beginn im Maschinenbau. Ein Standort, ein Name, eine klare Ausrichtung. Familiengeführt vom ersten Tag an.",
+            text: "Gründung im Maschinenbau. Familiengeführt vom ersten Tag an.",
             bild: "/images/hero-halle.jpg",
             bildAlt: "Blick in eine Werkshalle",
           },
           {
             jahr: "1965",
             titel: "Einstieg in den Mischerbau.",
-            text: "Erste Erfahrungen im Bereich Mischer. Aus dem Werk in St. Wendel entsteht die technische Basis, auf der später ein ganzes Programm aufbaut.",
+            text: "Erste Erfahrungen im Bereich Mischer. Die technische Basis, auf der später ein ganzes Programm aufbaut.",
             bild: "/images/betonmischer-2.jpg",
             bildAlt: "Betonmischer-Detail",
           },
           {
             jahr: "1980er",
             titel: "WZM Weiskircher Zwangs-Mischer.",
-            text: "Vertrieb unserer Tellermischer unter dem eigenen Markennamen. Zwangsmischer werden zu einer Kernkompetenz des Hauses.",
+            text: "Vertrieb unserer Tellermischer unter eigenem Markennamen. Zwangsmischer werden zur Kernkompetenz.",
             bild: "/images/betonmischer.jpg",
             bildAlt: "Betonmischer im Einsatz",
           },
           {
             jahr: "1985",
             titel: "Komplette Mischanlagen.",
-            text: "Von der Projektierung bis zur Montage. Anlagen für Transportbeton und Fertigteilwerke werden fester Bestandteil des Programms.",
+            text: "Von der Projektierung bis zur Montage. Für Transportbeton und Fertigteilwerke.",
             bild: "/images/mischanlagen.jpg",
             bildAlt: "Betonmischanlage",
           },
           {
             jahr: "Heute",
-            titel: "Über 1.000 Recyclinganlagen im Einsatz.",
-            text: "Ein europäisches Vertriebsnetz. Referenzen bei den großen Namen der Branche. Weiter familiengeführt. Weiter aus St. Wendel.",
+            titel: "Europäisches Vertriebsnetz.",
+            text: "Referenzen bei den großen Namen der Branche. Weiter familiengeführt aus St. Wendel.",
             bild: "/images/beton-recycling.jpg",
             bildAlt: "Betonwerk mit Recyclingzone",
           },
@@ -173,7 +165,7 @@ export default function Home() {
 
       <StackCards
         subtitle="Ausrichtung"
-        title="Fünf Wege, wie wir arbeiten."
+        title="Wie wir arbeiten."
         items={[
           {
             eyebrow: "Prinzip 01",
@@ -202,13 +194,6 @@ export default function Home() {
             text: "Wir hören zu, bevor wir konstruieren. Jede Anlage entsteht in Abstimmung mit den Menschen, die sie später täglich bedienen.",
             bild: "/images/beschickungsaufzuege.jpg",
             bildAlt: "Beschickungsaufzug einer Betonanlage",
-          },
-          {
-            eyebrow: "Prinzip 05",
-            titel: "In Europa zu Hause.",
-            text: "Vertretungen in Frankreich, Belgien, den Niederlanden, Russland, Tschechien und der Slowakei. Aus St. Wendel für den europäischen Werksalltag.",
-            bild: "/images/mischanlagen-2.jpg",
-            bildAlt: "Betonmischanlage mit Silos",
           },
         ]}
       />
