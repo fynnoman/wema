@@ -139,11 +139,6 @@ export default function Hero() {
               />
               <div className="h-px bg-white/10" />
               <MetricRow
-                label={en ? "Employees" : "Mitarbeiter"}
-                value={`${en ? "approx." : "ca."} ${SITE.mitarbeiter}`}
-              />
-              <div className="h-px bg-white/10" />
-              <MetricRow
                 label={en ? "Recycling plants" : "Recyclinganlagen"}
                 value="1.000+"
               />
@@ -169,13 +164,13 @@ export default function Hero() {
             />
             <span className="h-6 w-px bg-white/20" />
             <MobileMetric
-              value={`${en ? "approx." : "ca."} ${SITE.mitarbeiter}`}
-              label={en ? "Team" : "Team"}
+              value="1.000+"
+              label={en ? "Plants" : "Anlagen"}
             />
             <span className="h-6 w-px bg-white/20" />
             <MobileMetric
-              value="1.000+"
-              label={en ? "Plants" : "Anlagen"}
+              value="1.000 m²"
+              label={en ? "Shop floor" : "Halle"}
             />
           </div>
 

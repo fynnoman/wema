@@ -66,8 +66,8 @@ export default function Unternehmen() {
               <ScrollWord
                 as="p"
                 className="text-lg leading-relaxed text-[color:var(--color-ink-soft)] md:text-2xl"
-                text="Die WEMA Stahl- und Maschinenbau GmbH ist ein mittelständisches Unternehmen mit Sitz in St. Wendel. Rund zwanzig Menschen arbeiten in einer Produktionshalle von tausend Quadratmetern, ausgestattet mit zwei Zehn-Tonnen-Krananlagen und einer eigenen Lackierhalle."
-                textEn="WEMA Stahl- und Maschinenbau GmbH is a medium-sized company based in St. Wendel. Around twenty people work in a production hall of one thousand square metres, equipped with two ten-ton cranes and an in-house paint shop."
+                text="Die WEMA Stahl- und Maschinenbau GmbH ist ein mittelständisches Unternehmen mit Sitz in St. Wendel. Gearbeitet wird in einer Produktionshalle von tausend Quadratmetern, ausgestattet mit zwei Zehn-Tonnen-Krananlagen und einer eigenen Lackierhalle."
+                textEn="WEMA Stahl- und Maschinenbau GmbH is a medium-sized company based in St. Wendel. The work takes place in a production hall of one thousand square metres, equipped with two ten-ton cranes and an in-house paint shop."
                 intensity={0.85}
               />
               <ScrollWord
@@ -164,8 +164,8 @@ export default function Unternehmen() {
             titelEn: "Entry into mixer engineering.",
             text: "Erste Erfahrungen im Bereich Mischer. Aus dem Werk in St. Wendel entsteht die technische Basis, auf der später ein ganzes Programm aufbaut.",
             textEn: "First experience in mixer engineering. From the St. Wendel workshop, the technical foundation emerges on which a whole programme is later built.",
-            bild: "/images/betonmischer-2.jpg",
-            bildAlt: "Betonmischer-Detail",
+            bild: "/images/photos/betonmischer-02.png",
+            bildAlt: "WEMA Tellerzwangsmischer",
           },
           {
             jahr: "1980er",
@@ -173,8 +173,8 @@ export default function Unternehmen() {
             titelEn: "WZM Weiskircher forced mixers.",
             text: "Vertrieb unserer Tellermischer unter dem eigenen Markennamen. Zwangsmischer werden zu einer Kernkompetenz des Hauses.",
             textEn: "We start selling our pan mixers under our own brand. Forced mixers become a core competence.",
-            bild: "/images/betonmischer.jpg",
-            bildAlt: "Betonmischer im Einsatz",
+            bild: "/images/photos/betonmischer-01.png",
+            bildAlt: "WEMA Tellerzwangsmischer in der Fertigung",
           },
           {
             jahr: "1985",

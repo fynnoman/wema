@@ -39,7 +39,7 @@ export default function Home() {
                 intensity={0.85}
               />
 
-              <div className="mt-14 grid grid-cols-3 gap-6 border-t border-[color:var(--color-line)] pt-10">
+              <div className="mt-14 grid grid-cols-2 gap-6 border-t border-[color:var(--color-line)] pt-10">
                 <Metric
                   label={<T de="Gegründet" en="Founded" />}
                   value={<CountUp to={SITE.gruendung} />}
@@ -47,14 +47,6 @@ export default function Home() {
                 <Metric
                   label={<T de="Recyclinganlagen" en="Recycling plants" />}
                   value={<><CountUp to={1000} />+</>}
-                />
-                <Metric
-                  label={<T de="Mitarbeiter" en="Employees" />}
-                  value={
-                    <>
-                      <T de="ca." en="approx." /> <CountUp to={SITE.mitarbeiter} />
-                    </>
-                  }
                 />
               </div>
             </div>
