@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import Reveal from "@/components/Reveal";
 import StickySection from "@/components/StickySection";
@@ -7,11 +8,22 @@ import CountUp from "@/components/CountUp";
 import HorizontalProgram from "@/components/HorizontalProgram";
 import StackCards from "@/components/StackCards";
 import T from "@/components/T";
+import JsonLd from "@/components/JsonLd";
 import { SITE } from "@/lib/site";
+import { SITE_URL, localBusinessJsonLd } from "@/lib/seo";
+
+export const metadata: Metadata = {
+  title:
+    "WEMA Stahl- und Maschinenbau · Beton-Recyclinganlagen seit 1953 · St. Wendel",
+  description:
+    "WEMA aus St. Wendel: Hersteller von Beton-Recyclinganlagen, Tellerzwangsmischern, Beschickungsaufzügen, Mischanlagen und Hydrozyklon-Technik für die Beton produzierende Industrie. Familiengeführt seit 1953, europaweit im Einsatz.",
+  alternates: { canonical: SITE_URL },
+};
 
 export default function Home() {
   return (
     <>
+      <JsonLd data={localBusinessJsonLd()} />
       <Hero />
 
       <section className="relative bg-white">

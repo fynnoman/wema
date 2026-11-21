@@ -3,8 +3,13 @@ import T from "@/components/T";
 import SitemapProdukte from "@/components/SitemapProdukte";
 import { PRODUKTE } from "@/lib/site";
 
-export const metadata = {
-  title: "Sitemap · WEMA Stahl- und Maschinenbau GmbH",
+import { SITE_URL } from "@/lib/seo";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Sitemap",
+  description: "Übersicht aller Seiten der WEMA-Website.",
+  alternates: { canonical: `${SITE_URL}/sitemap` },
 };
 
 export default function Sitemap() {

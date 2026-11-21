@@ -1,12 +1,15 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
 import Parallax from "@/components/Parallax";
 import T from "@/components/T";
 import ProduktDetails from "@/components/ProduktDetails";
 import ProduktGalerie from "@/components/ProduktGalerie";
 import ProduktNachbar from "@/components/ProduktNachbar";
+import JsonLd from "@/components/JsonLd";
 import { PRODUKTE, SITE } from "@/lib/site";
+import { SITE_URL, breadcrumbJsonLd, productJsonLd } from "@/lib/seo";
 
 export function generateStaticParams() {
   return PRODUKTE.map((p) => ({ slug: p.slug }));
@@ -16,13 +19,22 @@ export async function generateMetadata({
   params,
 }: {
   params: Promise<{ slug: string }>;
-}) {
+}): Promise<Metadata> {
   const { slug } = await params;
   const p = PRODUKTE.find((x) => x.slug === slug);
   if (!p) return {};
+  const url = `${SITE_URL}/leistungen/${p.slug}`;
   return {
-    title: `${p.titel} · WEMA Stahl- und Maschinenbau GmbH`,
-    description: p.kurz,
+    title: `${p.titel} · WEMA Weiskircher`,
+    description: `${p.kurz} ${p.intro}`.slice(0, 300),
+    alternates: { canonical: url },
+    openGraph: {
+      title: `${p.titel} · WEMA Weiskircher`,
+      description: p.kurz,
+      url,
+      images: [{ url: p.bild, alt: p.bildAlt }],
+      type: "article",
+    },
   };
 }
 
@@ -40,6 +52,16 @@ export default async function ProduktSeite({
 
   return (
     <>
+      <JsonLd
+        data={[
+          productJsonLd(p),
+          breadcrumbJsonLd([
+            { name: "Start", url: "/" },
+            { name: "Was wir bieten", url: "/leistungen" },
+            { name: p.titel, url: `/leistungen/${p.slug}` },
+          ]),
+        ]}
+      />
       <section className="relative h-[85svh] min-h-[560px] w-full overflow-hidden bg-[#0a1522]">
         <Parallax
           src={p.bild}

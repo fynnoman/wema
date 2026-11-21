@@ -7,17 +7,33 @@ import CountUp from "@/components/CountUp";
 import PinnedTimeline from "@/components/PinnedTimeline";
 import ZoomShowcase from "@/components/ZoomShowcase";
 import T from "@/components/T";
+import JsonLd from "@/components/JsonLd";
 import { SITE } from "@/lib/site";
+import { SITE_URL, breadcrumbJsonLd } from "@/lib/seo";
+import type { Metadata } from "next";
 
-export const metadata = {
-  title: "Unternehmen · WEMA Stahl- und Maschinenbau GmbH",
+export const metadata: Metadata = {
+  title: "Unternehmen",
   description:
-    "WEMA Stahl- und Maschinenbau aus St. Wendel. Familiengeführt seit 1953. Kompetenz für die Beton produzierende Industrie.",
+    "WEMA Stahl- und Maschinenbau GmbH aus St. Wendel. Familiengeführtes Unternehmen seit 1953. Produktion, Fertigung und Montage für die Beton produzierende Industrie in Deutschland und Europa.",
+  alternates: { canonical: `${SITE_URL}/unternehmen` },
+  openGraph: {
+    title: "Unternehmen · WEMA Weiskircher",
+    description:
+      "Familiengeführter Stahl- und Maschinenbau aus St. Wendel. Seit 1953 im Dienst der Beton-Industrie.",
+    url: `${SITE_URL}/unternehmen`,
+  },
 };
 
 export default function Unternehmen() {
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Start", url: "/" },
+          { name: "Unternehmen", url: "/unternehmen" },
+        ])}
+      />
       <section className="relative h-[85svh] min-h-[520px] w-full overflow-hidden bg-[#0a1522]">
         <Parallax
           src="/images/halle-innen.jpg"

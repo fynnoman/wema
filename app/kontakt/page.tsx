@@ -1,13 +1,21 @@
 import Reveal from "@/components/Reveal";
 import Parallax from "@/components/Parallax";
 import T from "@/components/T";
-import KontaktFormular from "@/components/KontaktFormular";
+import JsonLd from "@/components/JsonLd";
 import { SITE } from "@/lib/site";
+import { SITE_URL, breadcrumbJsonLd, localBusinessJsonLd } from "@/lib/seo";
+import type { Metadata } from "next";
 
-export const metadata = {
-  title: "Kontakt · WEMA Stahl- und Maschinenbau GmbH",
-  description:
-    "Kontakt zu WEMA in St. Wendel. Telefon, E-Mail, Anschrift und Anfahrt.",
+export const metadata: Metadata = {
+  title: "Kontakt",
+  description: `Kontakt zu WEMA Weiskircher in St. Wendel: Telefon ${SITE.telefon[0]}, E-Mail ${SITE.email}. Anschrift: ${SITE.strasse}, ${SITE.plz} ${SITE.ort}.`,
+  alternates: { canonical: `${SITE_URL}/kontakt` },
+  openGraph: {
+    title: "Kontakt · WEMA Weiskircher",
+    description:
+      "Anruf oder E-Mail genügt. Direkt zum Werk in St. Wendel.",
+    url: `${SITE_URL}/kontakt`,
+  },
 };
 
 export default function Kontakt() {
@@ -17,6 +25,15 @@ export default function Kontakt() {
 
   return (
     <>
+      <JsonLd
+        data={[
+          localBusinessJsonLd(),
+          breadcrumbJsonLd([
+            { name: "Start", url: "/" },
+            { name: "Kontakt", url: "/kontakt" },
+          ]),
+        ]}
+      />
       <section className="relative h-[75svh] min-h-[500px] w-full overflow-hidden bg-[#0a1522]">
         <Parallax
           src="/images/photos/rc-ueber-flur-03.jpg"
@@ -152,14 +169,59 @@ export default function Kontakt() {
               <T de="Anfrage" en="Enquiry" />
             </div>
             <h2 className="font-display mt-6 max-w-3xl text-4xl leading-[1.05] tracking-tight md:text-6xl">
-              <T de="Schreiben Sie uns" en="Write to us" />
+              <T de="Ein kurzer Anruf" en="A short call" />
               <span className="italic text-white/80">
-                <T de=" kurz, worum es geht." en=" and tell us what it's about." />
+                <T de=" oder eine E-Mail genügt." en=" or an email is enough." />
               </span>
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
-            <KontaktFormular />
+            <div className="mt-12 grid gap-10 md:grid-cols-2 md:mt-16">
+              <a
+                href={`tel:${SITE.telefon[0].replace(/\s/g, "")}`}
+                className="group block border-l-2 border-[color:var(--color-nav-4)] bg-white/[0.03] px-8 py-10 transition-colors hover:bg-white/[0.06] md:px-12 md:py-14"
+              >
+                <div className="eyebrow text-white/50">
+                  <T de="Telefon" en="Phone" />
+                </div>
+                <div className="font-display mt-4 text-3xl leading-none tracking-tight text-white md:text-5xl">
+                  {SITE.telefon[0]}
+                </div>
+                <ul className="mt-6 space-y-1 text-sm text-white/60">
+                  {SITE.telefon.slice(1).map((t) => (
+                    <li key={t}>{t}</li>
+                  ))}
+                  <li>
+                    <T de="Telefax" en="Fax" /> {SITE.telefax}
+                  </li>
+                </ul>
+                <div className="mt-10 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.24em] text-[color:var(--color-nav-4)]">
+                  <T de="Jetzt anrufen" en="Call now" />
+                  <span className="transition-transform duration-500 group-hover:translate-x-1">→</span>
+                </div>
+              </a>
+              <a
+                href={`mailto:${SITE.email}`}
+                className="group block border-l-2 border-[color:var(--color-nav-4)] bg-white/[0.03] px-8 py-10 transition-colors hover:bg-white/[0.06] md:px-12 md:py-14"
+              >
+                <div className="eyebrow text-white/50">
+                  <T de="E-Mail" en="Email" />
+                </div>
+                <div className="font-display mt-4 break-all text-2xl leading-tight tracking-tight text-white md:text-3xl">
+                  {SITE.email}
+                </div>
+                <p className="mt-6 max-w-sm text-sm leading-relaxed text-white/60">
+                  <T
+                    de="Beschreiben Sie Ihr Werk, Ihren Standort und die gewünschte Anwendung. Wir prüfen und melden uns zurück."
+                    en="Tell us about your plant, your location and the intended application. We review and get back to you."
+                  />
+                </p>
+                <div className="mt-10 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.24em] text-[color:var(--color-nav-4)]">
+                  <T de="E-Mail öffnen" en="Open email" />
+                  <span className="transition-transform duration-500 group-hover:translate-x-1">→</span>
+                </div>
+              </a>
+            </div>
           </Reveal>
         </div>
       </section>

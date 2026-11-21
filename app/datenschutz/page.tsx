@@ -1,8 +1,15 @@
 import T from "@/components/T";
 import { SITE } from "@/lib/site";
 
-export const metadata = {
-  title: "Datenschutz · WEMA Stahl- und Maschinenbau GmbH",
+import { SITE_URL } from "@/lib/seo";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Datenschutz",
+  description:
+    "Datenschutzerklärung der WEMA Stahl- und Maschinenbau GmbH, St. Wendel.",
+  alternates: { canonical: `${SITE_URL}/datenschutz` },
+  robots: { index: true, follow: false },
 };
 
 export default function Datenschutz() {

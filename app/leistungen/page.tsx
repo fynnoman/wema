@@ -4,17 +4,33 @@ import ScrollWord from "@/components/ScrollWord";
 import CountUp from "@/components/CountUp";
 import T from "@/components/T";
 import ProduktKarte from "@/components/ProduktKarte";
+import JsonLd from "@/components/JsonLd";
 import { PRODUKTE } from "@/lib/site";
+import { SITE_URL, breadcrumbJsonLd } from "@/lib/seo";
+import type { Metadata } from "next";
 
-export const metadata = {
-  title: "Was wir bieten · WEMA Stahl- und Maschinenbau GmbH",
+export const metadata: Metadata = {
+  title: "Was wir bieten · Beton-Recyclinganlagen, Mischer und Mischanlagen",
   description:
-    "Beton-Recyclinganlagen, Betonmischer, Beschickungsaufzüge, Mischanlagen und Zyklontechnik. Aus einer Hand, seit 1953.",
+    "Fünf Bereiche für die Beton produzierende Industrie: Beton-Recyclinganlagen, Tellerzwangsmischer und weitere Betonmischer, Beschickungsaufzüge, komplette Mischanlagen und Hydrozyklon-Technik. Planung, Fertigung und Montage aus einer Hand.",
+  alternates: { canonical: `${SITE_URL}/leistungen` },
+  openGraph: {
+    title: "Was wir bieten · WEMA Weiskircher",
+    description:
+      "Beton-Recyclinganlagen, Zwangsmischer, Beschickungsaufzüge, Mischanlagen, Hydrozyklon-Technik.",
+    url: `${SITE_URL}/leistungen`,
+  },
 };
 
 export default function Leistungen() {
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Start", url: "/" },
+          { name: "Was wir bieten", url: "/leistungen" },
+        ])}
+      />
       <section className="relative h-[75svh] min-h-[500px] w-full overflow-hidden bg-[#0a1522]">
         <Parallax
           src="/images/photos/mischanlage-01.jpg"
