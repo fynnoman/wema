@@ -22,6 +22,15 @@ export const NAV = [
   { href: "/kontakt", labelDe: "Kontakt", labelEn: "Contact" },
 ];
 
+export type Kategorie = {
+  slug: string;
+  name: string;
+  nameEn: string;
+  beschreibung?: string;
+  beschreibungEn?: string;
+  bilder: string[];
+};
+
 export type Produkt = {
   slug: string;
   titel: string;
@@ -38,6 +47,8 @@ export type Produkt = {
   bildAlt: string;
   bildAltEn: string;
   galerie?: string[];
+  kategorien?: Kategorie[];
+  hauptprodukt?: boolean;
 };
 
 export const PRODUKTE: Produkt[] = [
@@ -51,28 +62,76 @@ export const PRODUKTE: Produkt[] = [
       "Unsere Recyclinganlagen für Restbeton und Spülwasserverwertung sind seit ihrer Entwicklung über 1.000 Mal in Transportbeton und Fertigteilwerken eingesetzt worden. Sie arbeiten robust, wartungsarm und passen sich in bestehende Werke ein.",
     introEn:
       "Our recycling plants for residual concrete and wash water have been installed over 1,000 times in ready-mix and precast concrete plants since their development. They run robustly, need little maintenance and integrate into existing facilities.",
-    varianten: ["Über Flur", "Unter Flur", "Transportabel", "Kippkübel"],
-    variantenEn: ["Above-ground", "Below-ground", "Mobile", "Tipping skip"],
+    varianten: ["Überflur", "Unterflur", "Mit Aufgabetisch", "Mit Kippkübel"],
+    variantenEn: ["Above-ground", "Below-ground", "With feed table", "With tipping skip"],
     details: [
       "Vollständige Trennung von Zuschlägen und Zementschlamm.",
       "Rückführung des Spülwassers in den Produktionskreislauf.",
-      "Ausführungen für stationären und mobilen Einsatz.",
+      "Vier Ausführungen für jede räumliche Situation im Werk.",
       "Referenzen bei Holcim, Schwenk Beton, Godel Beton, Heidelberger Zement und Dyckerhoff.",
     ],
     detailsEn: [
       "Full separation of aggregates and cement slurry.",
       "Wash water is fed back into the production loop.",
-      "Versions for stationary and mobile use.",
+      "Four designs for every spatial situation on site.",
       "References at Holcim, Schwenk Beton, Godel Beton, Heidelberger Zement and Dyckerhoff.",
     ],
     bild: "/images/photos/rc-ueber-flur-01.jpg",
     bildAlt: "Beton-Recyclinganlage über Flur im Werk",
     bildAltEn: "Above-ground concrete recycling plant",
+    hauptprodukt: true,
     galerie: [
       "/images/photos/rc-ueber-flur-01.jpg",
       "/images/photos/rc-ueber-flur-02.jpg",
       "/images/photos/rc-ueber-flur-03.jpg",
       "/images/photos/rc-ueber-flur-04.jpg",
+    ],
+    kategorien: [
+      {
+        slug: "ueberflur",
+        name: "Überflur",
+        nameEn: "Above-ground",
+        beschreibung:
+          "Die klassische Ausführung oberhalb des Hallenbodens. Zugänglich, wartungsfreundlich und ohne bauliche Vorbereitung in bestehende Werke integrierbar.",
+        beschreibungEn:
+          "The classic design above floor level. Accessible, service-friendly and ready to integrate into existing plants without structural preparation.",
+        bilder: [
+          "/images/photos/rc-ueber-flur-01.jpg",
+          "/images/photos/rc-ueber-flur-02.jpg",
+          "/images/photos/rc-ueber-flur-03.jpg",
+          "/images/photos/rc-ueber-flur-04.jpg",
+        ],
+      },
+      {
+        slug: "unterflur",
+        name: "Unterflur",
+        nameEn: "Below-ground",
+        beschreibung:
+          "Die kompakte Lösung. Die Anlage sitzt unter der Fahrbahn, der Fahrmischer entleert direkt von oben. Spart Fläche und hält den Hof frei.",
+        beschreibungEn:
+          "The compact solution. The plant sits below the driveway and the truck mixer discharges directly from above. Saves space and keeps the yard clear.",
+        bilder: [],
+      },
+      {
+        slug: "mit-aufgabetisch",
+        name: "Mit Aufgabetisch",
+        nameEn: "With feed table",
+        beschreibung:
+          "Direktentleerung aus dem Fahrmischer auf den Aufgabetisch. Hoher Durchsatz, saubere Trennung und ein klar definierter Ablauf im Werkshof.",
+        beschreibungEn:
+          "Direct discharge from the truck mixer onto the feed table. High throughput, clean separation and a clearly defined workflow in the yard.",
+        bilder: [],
+      },
+      {
+        slug: "mit-kippkuebel",
+        name: "Mit Kippkübel",
+        nameEn: "With tipping skip",
+        beschreibung:
+          "Beschickung über Kippkübel für Werke, in denen keine direkte Zufahrt zum Aufgabetisch möglich ist. Flexibel in der Aufstellung, robust im Dauerbetrieb.",
+        beschreibungEn:
+          "Fed by a tipping skip for plants where the feed table cannot be approached directly. Flexible to position, robust in continuous operation.",
+        bilder: [],
+      },
     ],
   },
   {

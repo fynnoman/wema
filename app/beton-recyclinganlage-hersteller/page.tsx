@@ -18,9 +18,9 @@ const FAQ = [
     frageDe: "Welche Bauformen sind lieferbar?",
     frageEn: "Which designs are available?",
     antwortDe:
-      "WEMA Weiskircher baut vier bewährte Ausführungen: Über Flur und Unter Flur für stationäre Werke, Transportabel für Baustellen und zeitlich befristete Projekte, sowie Varianten mit Kippkübelbeschickung. Jede Ausführung wird auf das bestehende Werk und den gewünschten Durchsatz angepasst.",
+      "WEMA Weiskircher baut vier bewährte Ausführungen: Überflur und Unterflur für stationäre Werke, eine Variante mit Aufgabetisch für die direkte Entleerung aus dem Fahrmischer und eine Ausführung mit Kippkübel für Werke ohne direkte Zufahrt. Jede Ausführung wird auf das bestehende Werk und den gewünschten Durchsatz angepasst.",
     antwortEn:
-      "WEMA Weiskircher builds four proven designs: above-ground and below-ground for stationary plants, mobile for construction sites and temporary projects, and variants with tipping-skip feed. Each design is adapted to the existing plant and the required throughput.",
+      "WEMA Weiskircher builds four proven designs: above-ground and below-ground for stationary plants, a variant with feed table for direct discharge from the truck mixer and a design with tipping skip for plants without direct access. Each design is adapted to the existing plant and the required throughput.",
   },
   {
     frageDe: "Wie viele WEMA-Recyclinganlagen sind im Einsatz?",
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Beton-Recyclinganlage Hersteller · WEMA Weiskircher",
     description:
-      "Über 1.000 Recyclinganlagen im Einsatz. Über Flur, Unter Flur, Transportabel, Kippkübel. Aus St. Wendel, europaweit geliefert.",
+      "Über 1.000 Recyclinganlagen im Einsatz. Überflur, Unterflur, mit Aufgabetisch, mit Kippkübel. Aus St. Wendel, europaweit geliefert.",
     url: URL,
     images: [{ url: "/images/photos/rc-ueber-flur-01.jpg" }],
   },
@@ -99,14 +99,14 @@ export default function Page() {
         heroAlt="Beton-Recyclinganlage über Flur von WEMA Weiskircher"
         factsDe={[
           "Entwickelt in St. Wendel, über 1.000 Installationen in Europa.",
-          "Vier Ausführungen: Über Flur, Unter Flur, Transportabel, Kippkübel.",
+          "Vier Ausführungen: Überflur, Unterflur, mit Aufgabetisch, mit Kippkübel.",
           "Rückführung des Spülwassers in den Produktionskreislauf.",
           "Referenzen: Holcim, Schwenk Beton, Godel Beton, Heidelberger Zement, Dyckerhoff.",
           "Projektierung, Fertigung, Lackierung und Montage im eigenen Werk.",
         ]}
         factsEn={[
           "Developed in St. Wendel, with over 1,000 installations across Europe.",
-          "Four designs: above-ground, below-ground, mobile, tipping skip.",
+          "Four designs: above-ground, below-ground, with feed table, with tipping skip.",
           "Wash water is returned into the production loop.",
           "References: Holcim, Schwenk Beton, Godel Beton, Heidelberger Zement, Dyckerhoff.",
           "Engineering, manufacturing, painting and installation in-house.",
@@ -138,9 +138,9 @@ export default function Page() {
             titelDe: "Einbau in bestehende Werke, ohne Umplanung der Umgebung.",
             titelEn: "Integration into existing plants, without re-planning the surroundings.",
             textDe:
-              "Jede Ausführung ist auf die räumliche Situation angepasst. Über Flur oder Unter Flur, mit Kippkübel oder mit transportabler Rahmenkonstruktion, die Anlage passt sich dem Werk an statt umgekehrt.",
+              "Jede Ausführung ist auf die räumliche Situation angepasst. Überflur oder Unterflur, mit Aufgabetisch oder Kippkübel, die Anlage passt sich dem Werk an statt umgekehrt.",
             textEn:
-              "Each design is adapted to the spatial situation. Above-ground or below-ground, with tipping skip or as a mobile frame construction, the plant adapts to the facility rather than the other way around.",
+              "Each design is adapted to the spatial situation. Above-ground or below-ground, with feed table or tipping skip, the plant adapts to the facility rather than the other way around.",
           },
           {
             eyebrowDe: "Dauerbetrieb",

@@ -14,13 +14,24 @@ export default function ProduktKarte({
 }) {
   const { lang } = useLang();
   const en = lang === "en";
+  const hauptprodukt = Boolean(produkt.hauptprodukt);
 
   return (
     <Link
       href={`/leistungen/${produkt.slug}`}
-      className="group relative grid overflow-hidden bg-[#0a1522] md:grid-cols-[1.2fr_1fr]"
+      className={
+        hauptprodukt
+          ? "group relative grid overflow-hidden bg-[#0a1522] md:grid-cols-[1.4fr_1fr]"
+          : "group relative grid overflow-hidden bg-[#0a1522] md:grid-cols-[1.2fr_1fr]"
+      }
     >
-      <div className="relative aspect-[16/10] w-full overflow-hidden md:aspect-auto md:min-h-[420px]">
+      <div
+        className={
+          hauptprodukt
+            ? "relative aspect-[16/10] w-full overflow-hidden md:aspect-auto md:min-h-[560px]"
+            : "relative aspect-[16/10] w-full overflow-hidden md:aspect-auto md:min-h-[420px]"
+        }
+      >
         <Image
           src={produkt.bild}
           alt={en ? produkt.bildAltEn : produkt.bildAlt}
@@ -35,8 +46,23 @@ export default function ProduktKarte({
               "linear-gradient(180deg, rgba(10,21,34,0.1) 0%, rgba(10,21,34,0.5) 100%)",
           }}
         />
+        {hauptprodukt && (
+          <div className="absolute left-6 top-6 inline-flex items-center gap-3 border border-[color:var(--color-nav-4)]/60 bg-[color:var(--color-nav-2)]/40 px-4 py-2 text-[10px] uppercase tracking-[0.28em] text-white backdrop-blur-sm md:left-10 md:top-10">
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[color:var(--color-nav-4)] opacity-70" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[color:var(--color-nav-4)]" />
+            </span>
+            {en ? "Core product" : "Hauptprodukt"}
+          </div>
+        )}
       </div>
-      <div className="flex flex-col justify-between gap-6 p-6 text-white md:gap-8 md:p-14">
+      <div
+        className={
+          hauptprodukt
+            ? "flex flex-col justify-between gap-6 p-6 text-white md:gap-10 md:p-16"
+            : "flex flex-col justify-between gap-6 p-6 text-white md:gap-8 md:p-14"
+        }
+      >
         <div className="flex items-baseline gap-4 md:gap-6">
           <span className="mono text-[10px] uppercase tracking-[0.28em] text-white/60 md:text-xs">
             {String(index + 1).padStart(2, "0")} / 05
@@ -46,7 +72,13 @@ export default function ProduktKarte({
           </span>
         </div>
         <div>
-          <h2 className="font-display text-[28px] leading-[1.0] tracking-tight sm:text-4xl md:text-5xl">
+          <h2
+            className={
+              hauptprodukt
+                ? "font-display text-[32px] leading-[1.0] tracking-tight sm:text-5xl md:text-6xl"
+                : "font-display text-[28px] leading-[1.0] tracking-tight sm:text-4xl md:text-5xl"
+            }
+          >
             {en ? produkt.titelEn : produkt.titel}
           </h2>
           <p className="mt-4 max-w-md text-white/80 md:text-lg">

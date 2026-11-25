@@ -6,6 +6,7 @@ import Parallax from "@/components/Parallax";
 import T from "@/components/T";
 import ProduktDetails from "@/components/ProduktDetails";
 import ProduktGalerie from "@/components/ProduktGalerie";
+import ProduktKategorienGalerie from "@/components/ProduktKategorienGalerie";
 import ProduktNachbar from "@/components/ProduktNachbar";
 import JsonLd from "@/components/JsonLd";
 import { PRODUKTE, SITE } from "@/lib/site";
@@ -141,14 +142,24 @@ export default async function ProduktSeite({
         </div>
       </section>
 
-      {p.galerie && p.galerie.length > 0 && (
-        <ProduktGalerie
-          bilder={p.galerie}
-          altDe={p.bildAlt}
-          altEn={p.bildAltEn}
+      {p.kategorien && p.kategorien.length > 0 ? (
+        <ProduktKategorienGalerie
+          kategorien={p.kategorien}
           titelDe={p.titel}
           titelEn={p.titelEn}
+          altDe={p.bildAlt}
+          altEn={p.bildAltEn}
         />
+      ) : (
+        p.galerie && p.galerie.length > 0 && (
+          <ProduktGalerie
+            bilder={p.galerie}
+            altDe={p.bildAlt}
+            altEn={p.bildAltEn}
+            titelDe={p.titel}
+            titelEn={p.titelEn}
+          />
+        )
       )}
 
       <section className="relative">
