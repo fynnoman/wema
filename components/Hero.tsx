@@ -30,8 +30,8 @@ export default function Hero() {
         className="absolute inset-0 will-change-transform"
       >
         <Image
-          src="/images/hero-halle.jpg"
-          alt={en ? "Production hall at WEMA in St. Wendel" : "Fertigung in der Halle bei WEMA in St. Wendel"}
+          src="/images/photos/ueberflur-01.jpg"
+          alt={en ? "WEMA concrete recycling plant installed at a works" : "WEMA Beton-Recyclinganlage im Werk eines Kunden"}
           fill
           priority
           sizes="100vw"

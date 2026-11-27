@@ -114,8 +114,8 @@ export default function Home() {
             titelEn: "Everything from one source.",
             text: "Konstruktion, Fertigung, Lackierung und Montage. Ein Werk, ein Team, ein Ansprechpartner. Der kurze Weg zwischen Zeichnung und Werkstatt sichert die Qualität, die im Werk jeden Tag zählt.",
             textEn: "Engineering, manufacturing, painting and assembly. One site, one team, one point of contact. The short path from drawing to workshop secures the quality that matters every day.",
-            bild: "/images/halle-innen.jpg",
-            bildAlt: "Blick in die Halle mit Krananlage",
+            bild: "/images/photos/kippkuebel-04.jpg",
+            bildAlt: "Kippkübel-Recyclinganlage in der Werkshalle in St. Wendel",
           },
           {
             eyebrow: "Prinzip 02",
@@ -124,8 +124,8 @@ export default function Home() {
             titelEn: "Built for continuous operation.",
             text: "Wir bauen für Werke, in denen Stillstand teurer ist als jedes Bauteil. Robust dimensioniert, wartungsarm, ausgelegt auf jahrzehntelangen Einsatz.",
             textEn: "We build for plants where downtime is more expensive than any part. Robustly dimensioned, low-maintenance, designed for decades of service.",
-            bild: "/images/stahl-detail.jpg",
-            bildAlt: "Detail einer Stahlkonstruktion",
+            bild: "/images/photos/betonmischer-03.jpg",
+            bildAlt: "Großer WEMA Tellerzwangsmischer im Dauerbetrieb",
           },
           {
             eyebrow: "Prinzip 03",
@@ -144,15 +144,15 @@ export default function Home() {
             titelEn: "Close to the operator.",
             text: "Wir hören zu, bevor wir konstruieren. Jede Anlage entsteht in Abstimmung mit den Menschen, die sie später täglich bedienen.",
             textEn: "We listen before we design. Every plant is built in coordination with the people who operate it every day.",
-            bild: "/images/photos/aufzug-02.jpg",
-            bildAlt: "Beschickungsaufzug einer Betonanlage",
+            bild: "/images/photos/aufgabetisch-05.jpg",
+            bildAlt: "Werker reinigt den Aufgabetisch einer WEMA Recyclinganlage",
           },
         ]}
       />
 
       <StickySection
-        src="/images/hero-beton.jpg"
-        alt="Beton fließt aus der Mischanlage"
+        src="/images/photos/kippkuebel-01.jpg"
+        alt="Komplette WEMA Recyclinganlage mit Kippkübel beim Kunden"
         overlay="linear-gradient(90deg, rgba(10,21,34,0.85) 0%, rgba(10,21,34,0.35) 60%, rgba(10,21,34,0.1) 100%)"
         minHeight="160vh"
       >
