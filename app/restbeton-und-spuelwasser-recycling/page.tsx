@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     description:
       "Kreislauf im Werk: Zuschläge zurück, Spülwasser zurück, Entsorgung spürbar runter.",
     url: URL,
-    images: [{ url: "/images/photos/rc-ueber-flur-02.jpg" }],
+    images: [{ url: "/images/photos/ueberflur-02.jpg" }],
   },
 };
 
@@ -93,7 +93,7 @@ export default function Page() {
         }
         leadDe="WEMA Weiskircher baut den geschlossenen Kreislauf im Betonwerk: Restbeton aus Fahrmischern und Pumpen wird in seine Bestandteile getrennt, Spülwasser wird aufbereitet und zurückgeführt. Weniger Abfall, weniger Transport, geringere Entsorgungs- und Wasserkosten."
         leadEn="WEMA Weiskircher closes the loop in the concrete plant: residual concrete from truck mixers and pumps is separated into its parts, wash water is treated and returned. Less waste, less transport, lower disposal and water costs."
-        heroImage="/images/photos/rc-ueber-flur-02.jpg"
+        heroImage="/images/photos/ueberflur-02.jpg"
         heroAlt="Restbeton- und Spülwasserrecycling am Betonwerk mit WEMA-Anlage"
         factsDe={[
           "Trennung von Zuschlägen, Zementschlamm und Wasser.",

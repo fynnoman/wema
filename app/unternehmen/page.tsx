@@ -207,7 +207,7 @@ export default function Unternehmen() {
             titelEn: "Over 1,000 recycling plants in operation.",
             text: "Ein europäisches Vertriebsnetz. Referenzen bei den großen Namen der Branche. Weiter familiengeführt. Weiter aus St. Wendel.",
             textEn: "A European sales network. References at the big names in the industry. Still family-run. Still from St. Wendel.",
-            bild: "/images/photos/rc-ueber-flur-02.jpg",
+            bild: "/images/photos/ueberflur-02.jpg",
             bildAlt: "Beton-Recyclinganlage im Werk",
           },
         ]}

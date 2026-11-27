@@ -36,7 +36,7 @@ export default function Kontakt() {
       />
       <section className="relative h-[75svh] min-h-[500px] w-full overflow-hidden bg-[#0a1522]">
         <Parallax
-          src="/images/photos/rc-ueber-flur-03.jpg"
+          src="/images/photos/ueberflur-02.jpg"
           alt="Beton-Recyclinganlage im Betrieb"
           className="absolute inset-0 h-full w-full"
           strength={80}

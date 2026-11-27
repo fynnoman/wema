@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     description:
       "Über 1.000 Recyclinganlagen im Einsatz. Überflur, Unterflur, mit Aufgabetisch, mit Kippkübel. Aus St. Wendel, europaweit geliefert.",
     url: URL,
-    images: [{ url: "/images/photos/rc-ueber-flur-01.jpg" }],
+    images: [{ url: "/images/photos/ueberflur-01.jpg" }],
   },
 };
 
@@ -95,7 +95,7 @@ export default function Page() {
         }
         leadDe="WEMA Weiskircher baut seit Jahrzehnten Beton-Recyclinganlagen für Transportbeton- und Fertigteilwerke. Über tausend Anlagen trennen Zuschläge, Zementschlamm und Spülwasser zuverlässig und führen Wasser und Material in den Produktionskreislauf zurück."
         leadEn="WEMA Weiskircher has been building concrete recycling plants for ready-mix and precast concrete works for decades. More than one thousand plants reliably separate aggregates, cement slurry and wash water and feed material and water back into the production loop."
-        heroImage="/images/photos/rc-ueber-flur-01.jpg"
+        heroImage="/images/photos/ueberflur-01.jpg"
         heroAlt="Beton-Recyclinganlage über Flur von WEMA Weiskircher"
         factsDe={[
           "Entwickelt in St. Wendel, über 1.000 Installationen in Europa.",
